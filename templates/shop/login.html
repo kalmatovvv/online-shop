@@ -1,0 +1,32 @@
+{% extends "shop/wrap.html" %}
+{% block login %}
+    <div class="col-md-6 col-md-offset-3" style="background-color: rgb(233,236,239); padding: 2%">
+        <div class="row">
+            <div class="container">
+                <h3 class="text-center">Авторизация</h3>
+                <form action="/login/ " method="post">
+                    {% csrf_token %}
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>Логин</label>
+                            <input type="text" class="form-control" name="username" id="username">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                    </div>
+                    {% if login_error %}
+                        <label class="alert alert-danger"> {{ login_error }}</label>
+                    {% endif %}
+                    <br/>
+                    <div class="text-center col-xs-12">
+                        <input class="btn btn-default " type="submit" value="Войти">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
