@@ -1,4 +1,64 @@
 {% extends "shop/wrap.html" %}
+{% load static %}
+
 {% block content %}
+      <div class="section-top">
+        <div>
+            <img src="{% static 'static_prod/img/slider0.jpg' %}" class="img-responsive">
+{#              <img src="/static/static_prod/img/slider0.jpg" class="img-responsive">#}
+
+        </div>
+    </div>
+
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for product_image in products_Images %}
+                    {% include 'shop/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-delivery">
+        <div>
+            <h3>Free shipping</h3>
+        </div>
+    </div>
+
+     <div class="section section2 phones-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Телефоны
+                    </h1>
+                </div>
+                {% for product_image in products_images_phones %}
+                    {% include 'shop/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+     <div class="section section3 laptops-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Ноутбуки
+                    </h1>
+                </div>
+                {% for product_image in products_images_laptops %}
+                    {% include 'shop/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
