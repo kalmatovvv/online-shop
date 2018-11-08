@@ -2,24 +2,38 @@ import os
 from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 from django.contrib import auth
 from django.http import HttpResponse, Http404
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from shop.models import User
 from django.contrib.auth.decorators import login_required
 # from shop import settings
+from decimal import *
+from datetime import timedelta
 from shop.form import *
 from shop.models import *
 
 
 def index(request):
+    args = {}
     user = auth.get_user(request)
 
     products_Images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
     products_images_phones = products_Images.filter(product__category__id=1)
     products_images_laptops = products_Images.filter(product__category__id=2)
 
+
+
     if user.is_anonymous:
-        return render(request, 'shop//index/index.html')
+        args['products_Images'] = products_Images
+        args['products_images_phones'] = products_images_phones
+        args['products_images_laptops'] = products_images_laptops
+        return render(request, 'shop/index/index.html',args)
     else:
-        return render(request, 'shop/index/index.html', locals())
+        args['username'] = auth.get_user(request)
+        args['products_Images'] = products_Images
+        args['products_images_phones'] = products_images_phones
+        args['products_images_laptops'] = products_images_laptops
+        return render(request, 'shop/index/index.html', args)
 
 
 def login(request):
@@ -67,6 +81,24 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def product(request, product_id):
+    args = {}
+    user = auth.get_user(request)
+
+    product = Product.objects.get(id=product_id)
+
+    session_key = request.session.session_key
+    if not session_key:
+        request.session.cycle_key()
+
+    print(request.session.session_key)
+    args['username'] = auth.get_user(request)
+    args['product'] = product
+
+
+    return render(request, 'shop/product.html', args)
 
 
 

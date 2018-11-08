@@ -294,17 +294,13 @@
 
     <div class="wrapper">
         <div class="wrapper-content">
-
             {% include 'shop/navbar.html' %}
 
-{#        </div>#}
-{#    </div>#}
+            {% block login %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
 
-{#<div class="container" style="margin: 2% ">#}
-        {% block content %}
-        {% endblock %}
-        {% block login %}
-        {% endblock %}
         </div>
     </div>
 

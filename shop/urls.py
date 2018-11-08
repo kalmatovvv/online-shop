@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/', views.login, name='вход'),
     path('logout/', views.logout, name='выход'),
     path('register/', views.register, name='регистрация'),
+    url(r'^product/(?P<product_id>\w+)/$', views.product, name='product'),
     # url(r'^$', views.home, name='home'),
     # url(r'^landing123/$', views.landing, name='landing'),
     # url(r'^registration/$', views.registration, name='registration'),

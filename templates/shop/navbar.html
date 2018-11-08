@@ -58,8 +58,18 @@
                     </div>
                 </div>
             </li>
-
-          </ul>
+            <li>
+               <ul class="nav navbar-nav ml-auto">
+                {% if username %}
+                    <li class="nav-item "><a class="nav-link" href="/logout">Выйти ({{ username }})</a></li>
+                     <li class="nav-item "><a class="nav-link" href="/profile">Профиль</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/login">Войти</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Зарегистрироваться</a></li>
+                {% endif %}
+               </ul>
+            </li>
+          <ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
