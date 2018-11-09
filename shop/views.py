@@ -19,19 +19,22 @@ def index(request):
 
     products_Images = ProductImage.objects.filter(is_active=True, is_main=True, product__is_active=True)
     products_images_phones = products_Images.filter(product__category__id=1)
-    products_images_laptops = products_Images.filter(product__category__id=2)
+    products_images_notebooks = products_Images.filter(product__category__id=2)
+    products_images_laptops = products_Images.filter(product__category__id=3)
 
 
 
     if user.is_anonymous:
         args['products_Images'] = products_Images
         args['products_images_phones'] = products_images_phones
+        args['products_images_notebooks'] = products_images_notebooks
         args['products_images_laptops'] = products_images_laptops
-        return render(request, 'shop/index/index.html',args)
+        return render(request, 'shop/index/index.html', args)
     else:
         args['username'] = auth.get_user(request)
         args['products_Images'] = products_Images
         args['products_images_phones'] = products_images_phones
+        args['products_images_notebooks'] = products_images_notebooks
         args['products_images_laptops'] = products_images_laptops
         return render(request, 'shop/index/index.html', args)
 
