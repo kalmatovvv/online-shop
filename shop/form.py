@@ -47,3 +47,9 @@ class UserSignUpForm(forms.Form):
     # bio = forms.CharField(label="Биография ")
     phoneNumber = forms.CharField(label="Номер телефона ")
     # commentForAdmin = forms.CharField(label="Комментарии администратору ")
+
+
+
+class CheckoutContactForm(forms.Form):
+    name = forms.CharField(required=True)
+    phone = forms.CharField(required=True)

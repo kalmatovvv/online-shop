@@ -3,6 +3,7 @@
 
 
 {% block content %}
+    <br><br><br><br>
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -16,11 +17,7 @@
                 <h1 class="text-center">
                     {{ product.name }}
                 </h1>
-                <div class="">
-                    <p>
-                        Price: {{ product.price }}
-                    </p>
-                </div>
+
                 <div>
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs" role="tablist">
@@ -50,8 +47,16 @@
                         <div role="tabpanel" class="tab-pane" id="settings">...</div>
                       </div>
                 </div>
+
+
+                <div class="">
+                    <p>
+                        <h3>Цена: {{ product.price }}</h3>
+                    </p>
+                </div>
+
                 <div>
-                    <form id="form_buying_product" class="form-inline" action="">{% csrf_token %}
+                    <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
                         <div class="form-group">
                             <input type="number" class="form-control" name="number" id="number">
                         </div>

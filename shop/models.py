@@ -55,7 +55,6 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def save(self, *args, **kwargs):
-
         super(Order, self).save(*args, **kwargs)
 
 
