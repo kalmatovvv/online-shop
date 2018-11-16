@@ -50,6 +50,16 @@ html,body {
     margin-bottom: 10px;
 }
 
+.order-item{
+    height: 200px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    position: relative;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .add-to-card-btn{
     position: absolute;
     bottom: 15px;
@@ -68,7 +78,7 @@ html,body {
 }
 
 .section-delivery{
-    height: 300px;
+
     background-color: darkseagreen;
     text-align: center;
     color: white;
@@ -111,7 +121,7 @@ html,body {
 .form-error{
     color: red;
 }
-
+height: 300px;
 
 
 

@@ -26,12 +26,6 @@ urlpatterns = [
     url(r'^product/(?P<product_id>\w+)/$', views.product, name='product'),
     url(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
     url(r'^checkout/$', views.checkout, name='checkout'),
-    # url(r'^$', views.home, name='home'),
-    # url(r'^landing123/$', views.landing, name='landing'),
-    # url(r'^registration/$', views.registration, name='registration'),
-    #
-    # url(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
-    # url(r'^checkout/$', views.checkout, name='checkout'),
-    #
-    # url(r'^product/(?P<product_id>\w+)/$', views.product, name='product'),
+    url(r'^my_orders/$', views.my_orders, name='my_orders'),
+
 ]

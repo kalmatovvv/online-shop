@@ -22,6 +22,8 @@ def index(request):
     products_images_notebooks = products_Images.filter(product__category__id=2)
     products_images_laptops = products_Images.filter(product__category__id=3)
 
+    print(products_Images)
+
     if user.is_anonymous:
         args['products_Images'] = products_Images
         args['products_images_phones'] = products_images_phones
@@ -35,6 +37,24 @@ def index(request):
         args['products_images_notebooks'] = products_images_notebooks
         args['products_images_laptops'] = products_images_laptops
         return render(request, 'shop/index/index.html', args)
+
+
+def my_orders(request):
+    args = {}
+    user = auth.get_user(request)
+
+    orders_my = Order.objects.filter(status__is_active=True, customer_name='admin')
+    print(orders_my)
+
+    if user.is_anonymous:
+        args['orders_my'] = orders_my
+        return render(request, 'shop/my_orders.html', args)
+    else:
+        args['username'] = auth.get_user(request)
+        args['u'] = 1
+        args['orders_my'] = orders_my
+        return render(request, 'shop/my_orders.html', args)
+
 
 
 def login(request):
@@ -186,5 +206,9 @@ def checkout(request):
         else:
             print("no")
     return render(request, 'shop/checkout.html', locals())
+
+
+
+
 
 
