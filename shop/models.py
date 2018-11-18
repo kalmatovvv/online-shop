@@ -28,7 +28,7 @@ class Status(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return "Статус %s" % self.name
+        return "Статус: %s" % self.name
 
     class Meta:
         verbose_name = 'Статус заказа'
@@ -44,6 +44,7 @@ class Order(models.Model):
     customer_address = models.CharField(max_length=128, blank=True, null=True, default=None)
     comments = models.TextField(blank=True, null=True, default=None)
     status = models.ForeignKey(Status, on_delete=True)
+    is_completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 

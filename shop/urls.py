@@ -25,6 +25,7 @@ urlpatterns = [
     path('register/', views.register, name='регистрация'),
     url(r'^product/(?P<product_id>\w+)/$', views.product, name='product'),
     url(r'^basket_adding/$', views.basket_adding, name='basket_adding'),
+    url(r'^confirm_order/(?P<order_id>\w+)/$', views.confirm_order, name='confirm_order'),
     url(r'^checkout/$', views.checkout, name='checkout'),
     url(r'^my_orders/$', views.my_orders, name='my_orders'),
 

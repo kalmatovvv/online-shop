@@ -145,7 +145,7 @@ def basket_adding(request):
         new_product, created = ProductInBasket.objects.get_or_create(session_key=session_key, product_id=product_id,
                                                                      is_active=True, defaults={"nmb": nmb})
         if not created:
-            print ("not created")
+            print("not created")
             new_product.nmb += int(nmb)
             new_product.save(force_update=True)
 
@@ -165,8 +165,6 @@ def basket_adding(request):
         return_dict["products"].append(product_dict)
 
     return JsonResponse(return_dict)
-
-
 
 
 
@@ -216,6 +214,11 @@ def checkout(request):
 
 
 
+def confirm_order(request, order_id):
 
+    order = Order.objects.get(id=order_id)
+    order.is_completed = True
+    order.save()
 
+    return redirect('/my_orders')
 
