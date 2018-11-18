@@ -43,8 +43,14 @@ def my_orders(request):
     args = {}
     user = auth.get_user(request)
 
-    orders_my = Order.objects.filter(status__is_active=True, customer_name='admin')
+    orders_my = Order.objects.filter(status__is_active=True, customer_name=user)
+    # products_in_order = ProductInOrder.objects.filter(order__customer_name=user)
+
+    #.exclude(status__name='Выполнен')
+
     print(orders_my)
+    print(user)
+
 
     if user.is_anonymous:
         args['orders_my'] = orders_my

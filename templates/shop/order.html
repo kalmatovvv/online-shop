@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="col-lg-12">
+<div class="col-lg-6">
     <div class="order-item">
 
         <div>
@@ -9,6 +9,18 @@
         <p>
             {{ orders.user.username }}
         </p>
+
+        {% if orders.status != 'Выполнен' %}
+        <div class="form-group">
+            <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                 data-product_id = "{{ product.id }}"
+                  data-name ="{{ product.name }}"
+                  data-price ="{{ product.price }}"
+                  >
+                Подтвердить получение
+            </button>
+        </div>
+        {% endif %}
 
     </div>
 </div>

@@ -14,10 +14,10 @@ $(document).ready(function(){
             data["is_delete"] = true;
         }
 
-         var url = form.attr("action");
-
+        var url = form.attr("action");
         console.log(data)
-         $.ajax({
+
+        $.ajax({
              url: url,
              type: 'POST',
              data: data,
@@ -40,10 +40,11 @@ $(document).ready(function(){
              error: function(){
                  console.log("error")
              }
-         })
+        })
 
     }
 
+    //добавление товара и его количества в корзину
     form.on('submit', function(e){
         e.preventDefault();
         console.log('123');
@@ -57,26 +58,30 @@ $(document).ready(function(){
         console.log(name);
 
         basketUpdating(product_id, nmb, is_delete=false)
-
     });
 
+    //функция отображения элементов корзины на navbar
     function showingBasket(){
         $('.basket-items').removeClass('hidden');
     };
 
+    //отображение элементов корзины при наведение на корзину на navbar
     $('.basket-container').on('click', function(e){
         e.preventDefault();
         showingBasket();
     });
 
+    //отображение элементов корзины при наведение курсора на корзину на navbar
      $('.basket-container').mouseover(function(){
          showingBasket();
      });
 
+    //скрытие элементов корзины при убирании курсора с корзины на navbar
      $('.basket-container').mouseout(function(){
          showingBasket();
      });
 
+     //удаление из корзины на navbar
      $(document).on('click', '.delete-item', function(e){
          e.preventDefault();
          product_id = $(this).data("product_id")
@@ -93,6 +98,7 @@ $(document).ready(function(){
         $('#total_order_amount').text(total_order_amount.toFixed(2));
     };
 
+    //отображение кол-ва товаров к корзине на navbar
     $(document).on('change', ".product-in-basket-nmb", function(){
         var current_nmb = $(this).val();
         console.log(current_nmb);
