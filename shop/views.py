@@ -43,8 +43,8 @@ def my_orders(request):
     args = {}
     user = auth.get_user(request)
 
-    orders_my = Order.objects.filter(status__is_active=True, customer_name=user)
-    products_in_order = ProductInOrder.objects.filter(order__customer_name=user)
+    orders_my = Order.objects.filter(status__is_active=True, user__username=user)
+    products_in_order = ProductInOrder.objects.filter(order__user__username=user)
 
     #.exclude(status__name='Выполнен')
 
