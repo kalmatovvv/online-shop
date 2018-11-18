@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="col-lg-6">
+<div class="col-lg-12">
     <div class="order-item">
 
         <div>
@@ -9,6 +9,21 @@
         <p>
             {{ orders.user.username }}
         </p>
+
+
+        {% for products in products_in_order %}
+        <!--print({{products.order.user.username}})-->
+        <!--print({{orders.user.username}})-->
+        <!--print({{orders.id}})-->
+        <!--print({{products.order.id}})-->
+        <!--print({{ products.product.name }})-->
+
+        <br>
+            {% if products.order.user.username == orders.user.username and products.order.id == orders.id %}
+                <div>{{ products.product.name }}</div>
+            {% endif %}
+        {% endfor %}
+
 
         {% if orders.status != 'Выполнен' %}
         <div class="form-group">
