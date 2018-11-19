@@ -53,3 +53,5 @@ class UserSignUpForm(forms.Form):
 class CheckoutContactForm(forms.Form):
     name = forms.CharField(required=True)
     phone = forms.CharField(required=True)
+    address = forms.CharField(required=True)
+    comments = forms.CharField(required=True)

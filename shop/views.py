@@ -199,12 +199,17 @@ def checkout(request):
             data = request.POST
             name = data.get("name", "3423453")
             phone = data["phone"]
+
+            comments = data["comments"]
             user = auth.get_user(request)
-            name = user
+            name = user.username
+            address = data["address"]
+            email = user.email
             print(user)
             # user, created = User.objects.get_or_create(username=phone, defaults={"first_name": name})
 
-            order = Order.objects.create(user=username, customer_phone=phone, status_id=1)
+            order = Order.objects.create(user=user, customer_name=name, customer_email=email,
+                                         customer_phone=phone,comments=comments, customer_address=address, status_id=1)
 
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):

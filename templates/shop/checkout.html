@@ -34,6 +34,26 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="col-lg-4">
+                                     <label>Адрес доставки</label>
+                                     <span class="form-error">{{ form.address.errors }}</span>
+                                    <input type="text" name="{{ form.address.html_name }}" class="form-control"
+                                        value="{{ request.POST.address }}"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-4">
+                                     <label>Комментарий</label>
+                                     <span class="form-error">{{ form.comments.errors }}</span>
+                                    <input type="text" name="{{ form.comments.html_name }}" class="form-control"
+                                        value="{{ request.POST.comments }}"
+                                    >
+                                </div>
+                            </div>
+
 
                         <table class="table text-center">
                             <thead>
