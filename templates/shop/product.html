@@ -55,6 +55,7 @@
                     </p>
                 </div>
 
+                {% if username%}
                 <div>
                     <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
                         <div class="form-group">
@@ -73,6 +74,9 @@
 
                     </form>
                 </div>
+                {% else %}
+                <h3><a href="/login">Войдите,</a> чтобы добавить в корзину</h3>
+                {% endif %}
             </div>
         </div>
     </div>

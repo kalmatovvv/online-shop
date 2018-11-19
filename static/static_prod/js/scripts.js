@@ -60,34 +60,34 @@ $(document).ready(function(){
         basketUpdating(product_id, nmb, is_delete=false)
     });
 
-    //функция отображения элементов корзины на navbar
-    function showingBasket(){
-        $('.basket-items').removeClass('hidden');
-    };
+//    //функция отображения элементов корзины на navbar
+//    function showingBasket(){
+//        $('.basket-items').removeClass('hidden');
+//    };
 
-    //отображение элементов корзины при наведение на корзину на navbar
-    $('.basket-container').on('click', function(e){
-        e.preventDefault();
-        showingBasket();
-    });
+//    //отображение элементов корзины при наведение на корзину на navbar
+//    $('.basket-container').on('click', function(e){
+//        e.preventDefault();
+//        showingBasket();
+//    });
+//
+//    //отображение элементов корзины при наведение курсора на корзину на navbar
+//     $('.basket-container').mouseover(function(){
+//         showingBasket();
+//     });
+//
+//    //скрытие элементов корзины при убирании курсора с корзины на navbar
+//     $('.basket-container').mouseout(function(){
+//         showingBasket();
+//     });
 
-    //отображение элементов корзины при наведение курсора на корзину на navbar
-     $('.basket-container').mouseover(function(){
-         showingBasket();
-     });
-
-    //скрытие элементов корзины при убирании курсора с корзины на navbar
-     $('.basket-container').mouseout(function(){
-         showingBasket();
-     });
-
-     //удаление из корзины на navbar
-     $(document).on('click', '.delete-item', function(e){
-         e.preventDefault();
-         product_id = $(this).data("product_id")
-         nmb = 0;
-         basketUpdating(product_id, nmb, is_delete=true)
-     });
+//     //удаление из корзины на navbar
+//     $(document).on('click', '.delete-item', function(e){
+//         e.preventDefault();
+//         product_id = $(this).data("product_id")
+//         nmb = 0;
+//         basketUpdating(product_id, nmb, is_delete=true)
+//     });
 
     function calculatingBasketAmount(){
         var total_order_amount = 0;

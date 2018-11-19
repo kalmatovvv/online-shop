@@ -122,11 +122,25 @@ def product(request, product_id):
         request.session.cycle_key()
 
     print(request.session.session_key)
-    args['username'] = auth.get_user(request)
-    args['product'] = product
+    if user.is_anonymous:
+        args['product'] = product
+        return render(request, 'shop/product.html', args)
+    else:
+        args['username'] = auth.get_user(request)
+        args['product'] = product
+        return render(request, 'shop/product.html', args)
 
-
-    return render(request, 'shop/product.html', args)
+    #
+    # if user.is_anonymous:
+    #     # args['orders_my'] = orders_my
+    #     return render(request, 'shop/my_orders.html', args)
+    # else:
+    #     args['username'] = auth.get_user(request)
+    #     args['orders_my'] = orders_my
+    #     args['products_in_order'] = products_in_order
+    #     return render(request, 'shop/my_orders.html', args)
+    #
+    # return render(request, 'shop/product.html', args)
 
 
 
@@ -190,7 +204,7 @@ def checkout(request):
             print(user)
             # user, created = User.objects.get_or_create(username=phone, defaults={"first_name": name})
 
-            order = Order.objects.create(user=user, customer_phone=phone, status_id=1)
+            order = Order.objects.create(user=username, customer_phone=phone, status_id=1)
 
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):
