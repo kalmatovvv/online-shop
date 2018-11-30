@@ -31,8 +31,8 @@
                                 Доставка
                             </a>
                         </li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                        <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
                       </ul>
 
                       <!-- Tab panes -->
@@ -41,10 +41,14 @@
                             {{ product.description }}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="delivery">
-                            <h3>Как мы делаем доставку</h3>
+                            <h5>
+                              <p>★  Почта России - 350 руб. (По всем городам Российской Федерации).</p>
+                              <p>*Жителям Республики Беларусь, Украины и Казахстана, стоимость отправки зависит от веса посылки (рассчитывается автоматически при оформлении заказа).</p>
+                              <p>Сроки доставки 7-14 дней .</p>
+                            </h5>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                        <!-- <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                        <div role="tabpanel" class="tab-pane" id="settings">...</div> -->
                       </div>
                 </div>
 
@@ -59,7 +63,7 @@
                 <div>
                     <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
                         <div class="form-group">
-                            <input type="number" class="form-control" name="number" id="number">
+                            <h4>Кол-во <input type="number" class="form-control" name="number" id="number""></h4>
                         </div>
 
                             <div class="form-group">
@@ -68,7 +72,7 @@
                                     data-name ="{{ product.name }}"
                                     data-price ="{{ product.price }}"
                                 >
-                                    Купить
+                                    Добавить в корзину
                                 </button>
                             </div>
 

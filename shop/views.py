@@ -21,14 +21,17 @@ def index(request):
     products_images_phones = products_Images.filter(product__category__id=1)
     products_images_notebooks = products_Images.filter(product__category__id=2)
     products_images_laptops = products_Images.filter(product__category__id=3)
+    products_recent = products_Images.order_by('-id')[:4]
 
     print(products_Images)
+    print(products_recent)
 
     if user.is_anonymous:
         args['products_Images'] = products_Images
         args['products_images_phones'] = products_images_phones
         args['products_images_notebooks'] = products_images_notebooks
         args['products_images_laptops'] = products_images_laptops
+        args['products_recent'] = products_recent
         return render(request, 'shop/index/index.html', args)
     else:
         args['username'] = auth.get_user(request)
@@ -36,6 +39,7 @@ def index(request):
         args['products_images_phones'] = products_images_phones
         args['products_images_notebooks'] = products_images_notebooks
         args['products_images_laptops'] = products_images_laptops
+        args['products_recent'] = products_recent
         return render(request, 'shop/index/index.html', args)
 
 
@@ -43,8 +47,10 @@ def my_orders(request):
     args = {}
     user = auth.get_user(request)
 
-    orders_my = Order.objects.filter(status__is_active=True, user__username=user)
+    orders_my = Order.objects.filter(status__is_active=True, user__username=user, is_completed=False)
     products_in_order = ProductInOrder.objects.filter(order__user__username=user)
+
+    orders_my_performed = Order.objects.filter(status__is_active=True, user__username=user, is_completed=True)
 
     #.exclude(status__name='Выполнен')
 
@@ -60,6 +66,8 @@ def my_orders(request):
         args['username'] = auth.get_user(request)
         args['orders_my'] = orders_my
         args['products_in_order'] = products_in_order
+
+        args['orders_my_performed'] = orders_my_performed
         return render(request, 'shop/my_orders.html', args)
 
 
@@ -240,4 +248,3 @@ def confirm_order(request, order_id):
     order.save()
 
     return redirect('/my_orders')
-

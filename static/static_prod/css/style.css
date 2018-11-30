@@ -18,13 +18,13 @@ html,body {
     padding-bottom: 130px; /* must be same height as the footer */
 }
 
-.footer{
+/* .footer{
     position: relative;
     margin-top: -130px; /* negative value of footer height */
     height: 130px;
     clear: both;
     background-color: white;
-}
+} */
 
 .section-top{
     margin: 20px;
@@ -70,6 +70,12 @@ html,body {
     color: white;
 }
 
+
+.btn-confirm {
+    position: absolute;
+    bottom: 15px;
+    left: 80px;
+}
 
 .discount-container{
     position: absolute;
@@ -125,14 +131,3 @@ html,body {
 .form-error{
     color: red;
 }
-
-
-
-
-
-
-
-
-
-
-
