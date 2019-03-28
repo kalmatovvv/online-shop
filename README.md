@@ -2,79 +2,79 @@
 
 # Пользователь:
 ## Главная страница
-<img src="/imagesREADME/main_page.png" width="870" height="415"/>
+<img src="/static/imagesREADME/main_page.png" width="870" height="415"/>
 
 ## Страница регистрации
-<img src="/imagesREADME/registration.png" width="873" height="370"/>
+<img src="/static/imagesREADME/registration.png" width="873" height="370"/>
 
 ## Страница авторизации пользователя
-<img src="/imagesREADME/user_login.png" width="870" height="165"/>
+<img src="/static/imagesREADME/user_login.png" width="870" height="165"/>
 
 ## Страница добавления товара в корзину
-<img src="/imagesREADME/add_in_busket.png" width="870" height="380"/>
+<img src="/static/imagesREADME/add_in_busket.png" width="870" height="380"/>
 
 ##  Страница корзины
-<img src="/imagesREADME/busket.png" width="870" height="330"/>
+<img src="/static/imagesREADME/busket.png" width="870" height="330"/>
 
 # Администратор:
 ## Страница авторизации администратора
-<img src="/imagesREADME/admin_login.png" width="870" height="273"/>
+<img src="/static/imagesREADME/admin_login.png" width="870" height="273"/>
 
 ## Главная страница администратора
-<img src="/imagesREADME/admin_main_page.png" width="870" height="208"/>
+<img src="/static/imagesREADME/admin_main_page.png" width="870" height="208"/>
 
 ## Страница товаров
-<img src="/imagesREADME/admin_items.png" width="870" height="415"/>
+<img src="/static/imagesREADME/admin_items.png" width="870" height="415"/>
 
 ## Страница добавления товара 
-<img src="/imagesREADME/admin_adding_item.png" width="870" height="415"/>
+<img src="/static/imagesREADME/admin_adding_item.png" width="870" height="415"/>
 
 ## Страница заказов
-<img src="/imagesREADME/admin_orders.png" width="870" height="251"/>
+<img src="/static/imagesREADME/admin_orders.png" width="870" height="251"/>
 
 ## Страница добавления заказа 
-<img src="/imagesREADME/admin_adding_order.png" width="870" height="415"/>
+<img src="/static/imagesREADME/admin_adding_order.png" width="870" height="415"/>
 
 # Этапы разработки:
 ## 1. Объектная декомпозиция предметной области
 ### 1.1 Схема взаимодействия объектов пользователя
-<img src="/imagesREADME/user_object_interaction.png" width="870" height="533"/>
+<img src="/static/imagesREADME/user_object_interaction.png" width="870" height="533"/>
 
 ### 1.2 Схема взаимодействия объектов администратора
-<img src="/imagesREADME/admin_object_interaction.png" width="870" height="700"/>
+<img src="/static/imagesREADME/admin_object_interaction.png" width="870" height="700"/>
 
 ## 2. Проектирование структуры и компонентов программного продукта 
 ### 2.1 Диаграмма вариантов использования
-<img src="/imagesREADME/use_case_diagram.png" width="870" height="504"/>
+<img src="/static/imagesREADME/use_case_diagram.png" width="870" height="504"/>
 
 ### 2.2 Диаграмма классов концептуального уровня
-<img src="/imagesREADME/conceptual_class_diagram.png" width="870" height="509"/>
+<img src="/static/imagesREADME/conceptual_class_diagram.png" width="870" height="509"/>
 
 ### 2.2 Диаграмма деятельности
-<img src="/imagesREADME/diagram_of_activity.png" width="870" height="700"/>
+<img src="/static/imagesREADME/diagram_of_activity.png" width="870" height="700"/>
 
 ### 2.3 Диаграмма «сущность-связь» базы данных 
-<img src="/imagesREADME/database_diagram.png" width="870" height="700"/>
+<img src="/static/imagesREADME/database_diagram.png" width="870" height="700"/>
 
 
 ### 2.4 Диаграмма классов интерфейса пользователя
-<img src="/imagesREADME/user_interface_class_diagram.png" width="870" height="492"/>
+<img src="/static/imagesREADME/user_interface_class_diagram.png" width="870" height="492"/>
  
 ### 2.5 Диаграмма классов интерфейса администратора
-<img src="/imagesREADME/admin_interface_class_diagram.png" width="870" height="410"/>
+<img src="/static/imagesREADME/admin_interface_class_diagram.png" width="870" height="410"/>
 
 
 ### 2.6 Граф состояний интерфейса пользователя
-<img src="/imagesREADME/user_interface_graph.png" width="870" height="562"/>
+<img src="/static/imagesREADME/user_interface_graph.png" width="870" height="562"/>
 
 ### 2.6 Граф состояний интерфейса администратора
-<img src="/imagesREADME/admin_interface_graph.png" width="870" height="582"/>
+<img src="/static/imagesREADME/admin_interface_graph.png" width="870" height="582"/>
 
 ### 2.7 Диаграмма компоновки приложения
-<img src="/imagesREADME/diagramm_of_application_layout.png" width="870" height="700"/>
+<img src="/static/imagesREADME/diagramm_of_application_layout.png" width="870" height="700"/>
 
 ### 2.8 Диаграмма размещения приложения
-<img src="/imagesREADME/diagramm_of_application_placement.png" width="870" height="319"/>
+<img src="/static/imagesREADME/diagramm_of_application_placement.png" width="870" height="319"/>
 
 
 
