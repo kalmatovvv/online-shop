@@ -28,5 +28,4 @@ urlpatterns = [
     url(r'^confirm_order/(?P<order_id>\w+)/$', views.confirm_order, name='confirm_order'),
     url(r'^checkout/$', views.checkout, name='checkout'),
     url(r'^my_orders/$', views.my_orders, name='my_orders'),
-
 ]

@@ -82,4 +82,3 @@ class ProductImageAdmin(admin.ModelAdmin):
         model = ProductImage
 
 admin.site.register(ProductImage, ProductImageAdmin)
-

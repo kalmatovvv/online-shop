@@ -7,19 +7,8 @@ from django.utils import timezone
 
 
 class User(AbstractUser):
-    # password = models.CharField(max_length=128)
-    # first_name = models.CharField(max_length=128)
-    # last_name = models.CharField(max_length=128)
-    # phone = models.CharField(max_length=128)
-    # address = models.CharField(max_length=128)
-
-
     def __str__(self):
         return self.username
-
-    # class Meta:
-    #     verbose_name = 'User'
-    #     verbose_name_plural = 'A lot of Users'
 
 
 class Status(models.Model):
@@ -120,7 +109,6 @@ class ProductInOrder(models.Model):
         super(ProductInOrder, self).save(*args, **kwargs)
 
 
-# @disable_for_loaddata
 def product_in_order_post_save(sender, instance, created, **kwargs):
     order = instance.order
     all_products_in_order = ProductInOrder.objects.filter(order=order, is_active=True)

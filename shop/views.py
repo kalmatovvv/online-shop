@@ -6,7 +6,6 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from shop.models import User
 from django.contrib.auth.decorators import login_required
-# from shop import settings
 from decimal import *
 from datetime import timedelta
 from shop.form import *
@@ -52,15 +51,11 @@ def my_orders(request):
 
     orders_my_performed = Order.objects.filter(status__is_active=True, user__username=user, is_completed=True)
 
-    #.exclude(status__name='Выполнен')
-
     print(orders_my)
     print(products_in_order)
     print(user)
 
-
     if user.is_anonymous:
-        # args['orders_my'] = orders_my
         return render(request, 'shop/my_orders.html', args)
     else:
         args['username'] = auth.get_user(request)
@@ -69,8 +64,6 @@ def my_orders(request):
 
         args['orders_my_performed'] = orders_my_performed
         return render(request, 'shop/my_orders.html', args)
-
-
 
 def login(request):
     args = {}
@@ -97,9 +90,6 @@ def register(request):
         elif newuser_form.is_valid():
             newuser = User.objects.create(username=request.POST['username'],
                                           email=request.POST['email'],
-                                          # first_name=request.POST['first_name'],
-                                          # last_name=request.POST['last_name'],
-                                          # phoneNumber=request.POST['phoneNumber'],
                                           )
             newuser.set_password(request.POST['password_confirmation'])
             newuser.save()
@@ -138,19 +128,6 @@ def product(request, product_id):
         args['product'] = product
         return render(request, 'shop/product.html', args)
 
-    #
-    # if user.is_anonymous:
-    #     # args['orders_my'] = orders_my
-    #     return render(request, 'shop/my_orders.html', args)
-    # else:
-    #     args['username'] = auth.get_user(request)
-    #     args['orders_my'] = orders_my
-    #     args['products_in_order'] = products_in_order
-    #     return render(request, 'shop/my_orders.html', args)
-    #
-    # return render(request, 'shop/product.html', args)
-
-
 
 def basket_adding(request):
     return_dict = dict()
@@ -171,11 +148,9 @@ def basket_adding(request):
             new_product.nmb += int(nmb)
             new_product.save(force_update=True)
 
-    #common code for 2 cases
     products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
     products_total_nmb = products_in_basket.count()
     return_dict["products_total_nmb"] = products_total_nmb
-
     return_dict["products"] = list()
 
     for item in  products_in_basket:
@@ -185,9 +160,7 @@ def basket_adding(request):
         product_dict["price_per_item"] = item.price_per_item
         product_dict["nmb"] = item.nmb
         return_dict["products"].append(product_dict)
-
     return JsonResponse(return_dict)
-
 
 
 def checkout(request):
@@ -197,7 +170,6 @@ def checkout(request):
     print(products_in_basket)
     for item in products_in_basket:
         print(item.order)
-
 
     form = CheckoutContactForm(request.POST or None)
     if request.POST:
@@ -214,7 +186,6 @@ def checkout(request):
             address = data["address"]
             email = user.email
             print(user)
-            # user, created = User.objects.get_or_create(username=phone, defaults={"first_name": name})
 
             order = Order.objects.create(user=user, customer_name=name, customer_email=email,
                                          customer_phone=phone,comments=comments, customer_address=address, status_id=1)
@@ -242,9 +213,7 @@ def checkout(request):
 
 
 def confirm_order(request, order_id):
-
     order = Order.objects.get(id=order_id)
     order.is_completed = True
     order.save()
-
     return redirect('/my_orders')

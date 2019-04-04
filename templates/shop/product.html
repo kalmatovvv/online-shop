@@ -1,7 +1,6 @@
 {% extends "shop/wrap.html" %}
 {% load static %}
 
-
 {% block content %}
     <br><br><br><br>
     <div class="container">
@@ -31,8 +30,6 @@
                                 Доставка
                             </a>
                         </li>
-                        <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
                       </ul>
 
                       <!-- Tab panes -->
@@ -47,16 +44,12 @@
                               <p>Сроки доставки 7-14 дней .</p>
                             </h5>
                         </div>
-                        <!-- <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div> -->
                       </div>
                 </div>
 
 
                 <div class="">
-                    <p>
-                        <h3>Цена: {{ product.price }}</h3>
-                    </p>
+                    <p><h3>Цена: {{ product.price }}</h3></p>
                 </div>
 
                 {% if username%}

@@ -40,14 +40,7 @@ class UserSignUpForm(forms.Form):
     password_confirmation = forms.CharField(label="Потверждение пароля",
                                             widget=forms.PasswordInput(attrs={'class': 'form-control',
                                                                               'placeholder': 'Подтверждение пароля'}))
-    # position = forms.ChoiceField(choices=(
-    #     ('Студент', 'Студент'), ('Преподаватель', 'Преподаватель'), ('Научный сотрудник', 'Научный сотрудник')),
-    #     label="Должность ")
-    # caf = forms.CharField(label="Кафедра ")
-    # bio = forms.CharField(label="Биография ")
     phoneNumber = forms.CharField(label="Номер телефона ")
-    # commentForAdmin = forms.CharField(label="Комментарии администратору ")
-
 
 
 class CheckoutContactForm(forms.Form):
