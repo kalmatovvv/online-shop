@@ -131,7 +131,7 @@ def product(request, product_id):
 
 def basket_adding(request):
     return_dict = dict()
-    session_key = request.session.session_key
+    session_key = request.session.session_key.encode('utf-8')
     print(request.POST)
     data = request.POST
     product_id = data.get("product_id")
@@ -164,7 +164,7 @@ def basket_adding(request):
 
 
 def checkout(request):
-    session_key = request.session.session_key
+    session_key = request.session.session_key.encode('utf-8')
     username = auth.get_user(request)
     products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
     print(products_in_basket)
@@ -182,13 +182,18 @@ def checkout(request):
 
             comments = data["comments"]
             user = auth.get_user(request)
-            name = user.username
-            address = data["address"]
+            name = user.username.encode('utf-8')
+            address = data["address"].encode('utf-8')
             email = user.email
             print(user)
 
-            order = Order.objects.create(user=user, customer_name=name, customer_email=email,
-                                         customer_phone=phone,comments=comments, customer_address=address, status_id=1)
+            order = Order.objects.create(user=user, 
+                                        customer_name=name, 
+                                        customer_email=email,
+                                        customer_phone=phone,
+                                        comments=comments, 
+                                        customer_address=address, 
+                                        status_id=1)
 
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):

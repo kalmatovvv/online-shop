@@ -1,38 +1,40 @@
 # Веб-приложение "Интернет-магазин электроники"
 
-# Пользователь:
-## Главная страница
+Задание - разработать проект «Интернет-магазин». Этот сервис позволяет автоматизировать процесс покупки товаров в магазине, минимизирует телефонные/почтовые контакты с покупателями за счет удобной подачи информации, дает возможность получения актуальных значений товарных остатков, повышает лояльность клиентов за счет высокого уровня обслуживания, а также обеспечивает администрации магазина централизованный доступ ко всей информации, связанной с покупкой товаров.
+
+## Пользователь:
+### Главная страница
 <img src="/static/imagesREADME/main_page.png" width="870" height="415"/>
 
-## Страница регистрации
+### Страница регистрации
 <img src="/static/imagesREADME/registration.png" width="873" height="370"/>
 
-## Страница авторизации пользователя
+### Страница авторизации пользователя
 <img src="/static/imagesREADME/user_login.png" width="870" height="165"/>
 
-## Страница добавления товара в корзину
+### Страница добавления товара в корзину
 <img src="/static/imagesREADME/add_in_busket.png" width="870" height="380"/>
 
-##  Страница корзины
+###  Страница корзины
 <img src="/static/imagesREADME/busket.png" width="870" height="330"/>
 
-# Администратор:
-## Страница авторизации администратора
+## Администратор:
+### Страница авторизации администратора
 <img src="/static/imagesREADME/admin_login.png" width="870" height="273"/>
 
-## Главная страница администратора
+### Главная страница администратора
 <img src="/static/imagesREADME/admin_main_page.png" width="870" height="208"/>
 
-## Страница товаров
+### Страница товаров
 <img src="/static/imagesREADME/admin_items.png" width="870" height="415"/>
 
-## Страница добавления товара 
+### Страница добавления товара 
 <img src="/static/imagesREADME/admin_adding_item.png" width="870" height="415"/>
 
-## Страница заказов
+### Страница заказов
 <img src="/static/imagesREADME/admin_orders.png" width="870" height="251"/>
 
-## Страница добавления заказа 
+### Страница добавления заказа 
 <img src="/static/imagesREADME/admin_adding_order.png" width="870" height="415"/>
 
 # Этапы разработки:
@@ -77,12 +79,58 @@
 <img src="/static/imagesREADME/diagramm_of_application_placement.png" width="870" height="319"/>
 
 
+## How to deploy
 
-## СПИСОК ИСПОЛЬЗУЕМЫХ ИСТОЧНИКОВ
-#### 1.	Э. Гамма, Р. Хелм, Р. Джонсон, Дж. Влиссидес. Приемы объектно-ориентированного проектирования. Паттерны проектирования. СПб: «Питер», 2007. С. 366. 
-#### 2.	С. Морето. Bootstrap By Example. «Издательские решения», 2016. 182 с.  ISBN: 9785447462314
-#### 3.	Э. Фримен, Э. Робсон, К. Сиерра. Head First Design Patterns: A Brain-Friendly Guide. Обновленное изд. СПб: «Питер», 2018. 656 с.  ISBN 978-5-496-03210-0
-#### 4.	Иванова Г.С. Технология программирования: учебник / Г.С. Иванова. 3-е изд., стер. М.: КНОРУС, 2016. 334 с. (Бакалавриат). ISBN 978-5-04734-7
+PostgreSQL:
 
+```bash
+$ sudo apt-get -y update
+$ sudo apt-get install -y postgresql && \
+                postgresql-contrib && \
+                python-psycopg2 && \
+                libpq-dev 
 
+$ sudo -u postgres psql -f CREATE DATABASE askme; \
+                           CREATE USER askme_admin WITH password '12345'; \
+                           GRANT ALL privileges ON DATABASE askme TO askme_admin;
+```
 
+Django app:
+
+```bash
+$ cd ~
+$ git clone https://github.com/chahkiev/AskMe.git
+$ cd AskMe/
+$ python3 -mvenv venv
+$ source venv/bin/activate
+$ pip3 install -r requirements.txt
+$ python3 manage.py makemigrations
+$ python3 manage.py makemigrations question
+$ python3 manage.py migrate
+$ python3 manage.py runserver
+```
+
+#### OR:
+
+```bash
+$ cd ~
+$ git clone https://github.com/chahkiev/AskMe.git
+$ cd AskMe/deploy
+$ bash .createDB.sh
+$ bash .runApp.sh
+```
+# 
+
+### Стек технологий:
+* Python3;
+* Django - фреймворк на языке Python;
+* PostgreSQL - база данных;
+* Github – репозиторий для кода.
+
+# 
+
+### СПИСОК ИСПОЛЬЗУЕМЫХ ИСТОЧНИКОВ
+1. Э. Гамма, Р. Хелм, Р. Джонсон, Дж. Влиссидес. Приемы объектно-ориентированного проектирования. Паттерны проектирования. СПб: «Питер», 2007. С. 366. 
+2.	С. Морето. Bootstrap By Example. «Издательские решения», 2016. 182 с.  ISBN: 9785447462314
+3.	Э. Фримен, Э. Робсон, К. Сиерра. Head First Design Patterns: A Brain-Friendly Guide. Обновленное изд. СПб: «Питер», 2018. 656 с.  ISBN 978-5-496-03210-0
+4.	Иванова Г.С. Технология программирования: учебник / Г.С. Иванова. 3-е изд., стер. М.: КНОРУС, 2016. 334 с. (Бакалавриат). ISBN 978-5-04734-7
